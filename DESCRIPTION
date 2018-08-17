@@ -1,15 +1,16 @@
 Package: svSweave
 Type: Package
-Version: 0.9-9
-Date: 2015-07-10
-Title: SciViews GUI API - Sweave functions
+Version: 1.0.0
+Date: 2018-08-17
+Title: Sweave, Knitr and R Markdown Companion Functions
 Author: Philippe Grosjean [aut, cre]
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org"))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0), knitr
 Imports: utils
-Description: Supporting functions for the GUI API (Sweave functions).
+Description: Supporting functions for using Sweave ad Knitr with LyX. Functions
+  to reference figures, tables and equations.
 License: GPL-2
 URL: http://www.sciviews.org/SciViews-R
 BugReports: https://r-forge.r-project.org/tracker/?group_id=194

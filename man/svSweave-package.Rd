@@ -3,17 +3,17 @@
 \alias{svSweave}
 \docType{package}
 
-\title{ SciViews GUI API - Sweave functions }
+\title{ Sweave, Knitr and R Markdown Companion Functions }
 \description{
   The SciViews svSweave package provides additional function to use Sweave with
-  LyX and SciViews-LyX.
+  LyX and SciViews-LyX. Also function to reference tables, figures or equations inside a R markdown file are added with v1.0.
 }
 \details{
   \tabular{ll}{
     Package: \tab svSweave\cr
     Type: \tab Package\cr
-    Version: \tab 0.9-9\cr
-    Date: \tab 2015-07-10\cr
+    Version: \tab 1.0.0\cr
+    Date: \tab 2018-08-17\cr
     License: \tab GPL 2 or above, at your convenience\cr
   }
   % TODO: add description of main functions here. Also add examples
