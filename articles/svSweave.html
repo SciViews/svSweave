@@ -85,7 +85,7 @@
 
     
     
-<p>The ‘svSweave’ provides different function to better manage Sweaver and Knitr with LyX, a document processor that creates LaTeX code. These function are not detailed here. See their help page <code>?clean_lyx()</code>.</p>
+<p>The ‘svSweave’ provides different function to better manage Sweave and Knitr with LyX, a document processor that creates LaTeX code. These function are not detailed here. See their help page <code>?clean_lyx()</code>.</p>
 <p>The package also provides function to automatically enumerate and reference figures, tables and equations in R Markdown documents without needing the ‘bookdown’ package. Indeed, this feature is missing in the basic R Markdown documents. The various ‘bookdown’ templates provide a <code>\@ref(label)</code>, see <a href="https://bookdown.org/yihui/bookdown/cross-references.html">cross-reference</a>. The various functions <code><a href="../reference/new_labelling.html">fig()</a></code>, <code><a href="../reference/new_labelling.html">tab()</a></code> and <code><a href="../reference/new_labelling.html">eq()</a></code> provide a different mechanism to obtain the same result: enumerated items and the possibility to cross-reference them in the text. Here an example of a numbered figure with its caption. In order to use these function, you must load the ‘svSweave’ package in a (setup) chunk before you use these functions:</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">svSweave</span>)
 <span class="co">#&gt; Loading required package: knitr</span></pre></body></html></div>
