@@ -1,6 +1,6 @@
 # svSweave
 
-[![Linux Build Status](https://travis-ci.org/SciViews/svSweave.svg )](https://travis-ci.org/SciViews/svSweave)
+[![Linux Build Status](https://api.travis-ci.com/SciViews/svSweave.svg )](https://travis-ci.com/github/SciViews/svSweave)
 [![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/svSweave?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/svSweave)
 [![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg)
 ](https://codecov.io/github/SciViews/svSweave?branch=master)
