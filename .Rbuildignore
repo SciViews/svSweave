@@ -6,6 +6,7 @@ README.md
 FAQ.md
 TODO.md
 CONDUCT.md
+LICENSE.md
 LICENSE
 Makefile
 .Rprofile
@@ -19,3 +20,4 @@ Makefile
 ^docs$
 ^pkgdown$
 ^\.github$
+^CODE_OF_CONDUCT\.md$

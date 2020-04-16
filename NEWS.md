@@ -1,5 +1,9 @@
 # svSweave 1.0.0
 
+- `new_labelling()`, `fig()` and `tab()` are reworked to allow linking to figures and tables too.
+
+- `eq()` is completely reworked to use Mathjax features for display equation numbering and cross-referencing.
+
 - RStudio project added to the Github repository and many other satellite files.
 
 - Documentation moved to Roxygen2.

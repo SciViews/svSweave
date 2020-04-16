@@ -151,5 +151,5 @@ different software.
 \author{
 Philippe Grosjean
 }
-\concept{Litterate programming, weaving, tangling from LyX using Sweave}
+\concept{Literate programming, weaving, tangling from LyX using Sweave}
 \keyword{utilities}

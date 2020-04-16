@@ -1,27 +1,30 @@
+
 # svSweave
 
-[![Linux Build Status](https://api.travis-ci.com/SciViews/svSweave.svg )](https://travis-ci.com/github/SciViews/svSweave)
-[![Win Build Status](https://ci.appveyor.com/api/projects/status/github/SciViews/svSweave?branch=master&svg=true)](http://ci.appveyor.com/project/phgrosjean/svSweave)
-[![Coverage Status](https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg)
+<!-- badges: start -->
+[![Linux build status](https://travis-ci.com/SciViews/svSweave.svg?branch=master)](https://travis-ci.com/SciViews/svSweave)
+[![Win build status](https://ci.appveyor.com/api/projects/status/github/SciViews/svSweave?branch=master&svg=true)](https://ci.appveyor.com/project/phgrosjean/svSweave)
+[![Coverage status](https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg)
 ](https://codecov.io/github/SciViews/svSweave?branch=master)
-[![CRAN Status](http://www.r-pkg.org/badges/version/svSweave)](http://cran.r-project.org/package=svSweave)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
-[![Life
-cycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/)
+[![CRAN status](https://www.r-pkg.org/badges/version/svSweave)](https://CRAN.R-project.org/package=svSweave)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+<!-- badges: end -->
+
+'svSweave' provides additional functions to work with Sweave, Knitr and R Markdown, essentially for two uses for now:
+
+1. It implements a pure R code solution ofr numbering and cross-referencing figures, tables and equations in R Markdown files. Standard Pandoc does not provide this. Only the extensions proposed by 'bookdown' allow to do so for a limited number of output formats. Of course, you could also use LaTeX markups for this, but then, you are limited to output in PDF. The functions `fig()`, `tab()`and `eq()` allow to number respectively figures, tables and equations in *any* R Markdown document and the same function can be used to cross-reference these items in thne text. Moreover, `new_labelling()` creates a new function to enumerate other items.
+
+2. It provides helper functions to properly use 'knitr' with [LyX](https://www.lyx.org), a document editor targetting LaTeX output, that can also benefit from Sweave or knitr to include chunks in LyX documents directly.
 
 ## Installation
 
-### Latest stable version
+You can install the released version of 'svSweave' from [CRAN](https://CRAN.R-project.org) with:
 
-The latest stable version of 'svSweave' can simply be installed from [CRAN](http://cran.r-project.org):
-
-```r
+``` r
 install.packages("svSweave")
 ```
 
-### Development version
-
-Make sure you have the 'devtools' R package installed:
+You can also install the latest developement version. Make sure you have the 'devtools' R package installed:
 
 ```r
 install.packages("devtools")
@@ -35,28 +38,24 @@ devtools::install_github("SciViews/svSweave")
 
 R should install all required dependencies automatically, and then it should compile and install 'svSweave'.
 
-Latest devel version of 'svSweave' (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/svSweave/build/artifacts).
+Latest devel version of 'svSweave' in the "master" branch (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from [appveyor](https://ci.appveyor.com/project/phgrosjean/svSweave/build/artifacts).
 
-## Usage
+## Further explore 'svSweave'
 
-Make the 'svSweave' package available in your R session:
-
-```r
-library("svSweave")
-```
-
-Get help about this package:
+You can get further help about this package this way:
 
 ```r
 library(help = "svSweave")
-help("svSweave-package")
+pckage?svSweave
 vignette("svSweave") # None is installed with install_github()
 ```
 
-For further instructions, please, refer to the help pages at https://www.sciviews.org/svSweave/.
+For further instructions, please, refer to the related web site at https://www.sciviews.org/svSweave/.
+
+## Code of Conduct
+
+Please note that the svSweave project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## Note to developers
-
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 This package used to be developed on R-Forge in the past. However, the latest [R-Forge version](https://r-forge.r-project.org/projects/sciviews/) was moved to this Github repository on 2016-03-16 (SVN version 569). **Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.**

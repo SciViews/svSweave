@@ -1,5 +1,4 @@
-#' SvSweave - Sweave, Knitr and R Markdown Companion Functions
-#'
+#' @details
 #' The SciViews 'svSweave' package provides additional function to use Sweave or
 #' knitr with LyX and SciViews-LyX. There are also functions to reference
 #' tables, figures or equations inside a R markdown.
@@ -13,11 +12,14 @@
 #'
 #' - [clean_lyx()], [weave_lyx()], [knit_lyx()], [tangle_lyx()], [purl_lyx()]
 #' to clean up, weave or tangle Sweave files produced by LyX with the SciViews
-#' Sweave or Knitr modules.
-#'
-#' @docType package
-#' @name svSweave-package
-#'
+#' Sweave or Knitr modules.#'
+#' @keywords internal
+"_PACKAGE"
+
 #' @importFrom utils Sweave Stangle Rtangle RweaveLatex as.roman
 #' @importFrom knitr knit purl
+# The following block is used by usethis to automatically manage
+# roxygen namespace tags. Modify with care!
+## usethis namespace: start
+## usethis namespace: end
 NULL

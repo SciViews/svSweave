@@ -11,20 +11,22 @@
 new_labelling(
   type = c("arabic", "roman"),
   prefix = "",
-  string = "_**Figure ####:** @@@@_"
+  string = "**[Figure ####]{id=\\"Fig._\%\%\%\%\\"}:** @@@@",
+  name = "Fig."
 )
 
 newLabelling(
   type = c("arabic", "roman"),
   prefix = "",
-  string = "_**Figure ####:** @@@@_"
+  string = "**[Figure ####]{id=\\"Fig._\%\%\%\%\\"}:** @@@@",
+  name = "Fig."
 )
 
-fig(label, text, reset = FALSE)
+fig(label, text, name, reset = FALSE)
 
-tab(label, text, reset = FALSE)
+tab(label, text, name, reset = FALSE)
 
-eq(label, text, reset = FALSE)
+eq(label, reset = FALSE)
 }
 \arguments{
 \item{type}{The type of numbering (arabic or roman).}
@@ -35,8 +37,12 @@ eq(label, text, reset = FALSE)
 placeholder for the text, \verb{####} as a placeholder for the number, or
 \verb{\%\%\%\%} as a placeholder for numbered examples (used by \code{\link[=eq]{eq()}}).}
 
+\item{name}{The name to use before the number, e.g., "Fig." to get "Fig. 1"
+as cross-reference text for the first figure. If you provide \code{name = NULL},
+only the number is produced.}
+
 \item{label}{A short string uniquely identifying the item within the
-collection.}
+collection. To set a label in and equation, give a name instead of a string.}
 
 \item{text}{The text for the legend (can contain R Markdown formatting). In
 the case of \code{\link[=eq]{eq()}}, this is the LaTeX code for the equation itself.}
@@ -76,6 +82,17 @@ fig("a-picture", "This is my most beautiful picture")
 tab("anova-table", "ANOVA for my wonderful dataset.")
 # ... and further in the text, a reference to that table:
 tab("anova-table")
+
+# For equations, it works differently
+# You have to create a display equation with $$<eq>$$
+# and embed `r eq(label)` (without "") in it
+# Here is the code produced
+eq(pythagoras)
+# Then, where you want to cross-ref that equation,
+# you use `r eq("label")` (this time with "")
+# Here is the code produced:
+eq("pythagoras")
+# then Mathjax manages these codes in the HTML document
 }
 \author{
 Philippe Grosjean

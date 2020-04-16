@@ -10,9 +10,12 @@
 #' placeholder for the text, `####` as a placeholder for the number, or
 #' `%%%%` as a placeholder for numbered examples (used by [eq()]).
 #' @param label A short string uniquely identifying the item within the
-#' collection.
+#' collection. To set a label in and equation, give a name instead of a string.
 #' @param text The text for the legend (can contain R Markdown formatting). In
 #' the case of [eq()], this is the LaTeX code for the equation itself.
+#' @param name The name to use before the number, e.g., "Fig." to get "Fig. 1"
+#' as cross-reference text for the first figure. If you provide `name = NULL`,
+#' only the number is produced.
 #' @param reset If `TRUE`, the collection is reset. Useful if you want to
 #' restart numbering at the beginning of each chapter.
 #'
@@ -47,8 +50,19 @@
 #' tab("anova-table", "ANOVA for my wonderful dataset.")
 #' # ... and further in the text, a reference to that table:
 #' tab("anova-table")
+#'
+#' # For equations, it works differently
+#' # You have to create a display equation with $$<eq>$$
+#' # and embed `r eq(label)` (without "") in it
+#' # Here is the code produced
+#' eq(pythagoras)
+#' # Then, where you want to cross-ref that equation,
+#' # you use `r eq("label")` (this time with "")
+#' # Here is the code produced:
+#' eq("pythagoras")
+#' # then Mathjax manages these codes in the HTML document
 new_labelling <- function(type = c("arabic", "roman"), prefix = "",
-string = "_**Figure ####:** @@@@_") {
+string = '**[Figure ####]{id="Fig._%%%%"}:** @@@@', name = "Fig.") {
   type <- match.arg(type)
   conv <- switch(type,
     arabic = function(x) x,
@@ -56,10 +70,11 @@ string = "_**Figure ####:** @@@@_") {
   )
   prefix <- as.character(prefix)[1]
   string <- as.character(string)[1]
+  def_name <- as.character(name)[1]
   labels <- list()
 
   # Return a function that creates the enumeration of the items
-  function(label, text, reset = FALSE) {
+  function(label, text, name, reset = FALSE) {
     # Do we reset figs?
     if (isTRUE(reset))
       labels <<- list()
@@ -81,11 +96,16 @@ string = "_**Figure ####:** @@@@_") {
     mdlabel <- gsub("\\.", "-", make.names(label))
     if (missing(text)) {
       # Special case: if numbered example list of markdown...
-      if (grepl("%%%%", string)) {
-        paste0("@", mdlabel)
-      } else {
-        value
-      }
+#      if (grepl("%%%%", string)) {
+#        res <- paste0("@", mdlabel)
+#      } else {
+        res <- value
+      if (missing(name))
+        name <- def_name
+      if (!is.null(name))
+        res <- paste(name, res)
+      # Create a link with res
+      paste0("[", res, "](#", def_name, "_", mdlabel, ")")
     } else {
       sub("%%%%", mdlabel, sub("@@@@", text, sub("####", value, string)))
     }
@@ -104,10 +124,36 @@ fig <- new_labelling()
 
 #' @export
 #' @rdname new_labelling
-tab <- new_labelling(string = "_**Table ####:** @@@@_")
+tab <- new_labelling(string = '**[Table ####]{id="Table_%%%%"}:** @@@@',
+  name = "Table")
 
-# This is the best I can do, using the numbered example list of markdown
-# (but it is not available for something else)!
+# Equations are a little bit special
 #' @export
 #' @rdname new_labelling
-eq <- new_labelling(string = "(@%%%%)") # Was "(@%%%%) $$ @@@@ $$")
+eq <- (function() {
+  labels <- list()
+
+  # Return a function that creates the enumeration of the equations
+  function(label, reset = FALSE) {
+    # Do we reset eqs?
+    if (isTRUE(reset))
+      labels <<- list()
+
+    label <- substitute(label)
+    if (is.name(label)) {# We define a label inside a display equation
+      value <- labels[[as.character(label)]]
+      # Does it exists?
+      if (is.null(value)) {
+        value <- length(labels) + 1
+        # Record this item in labels
+        labels[[label]] <- value
+        labels <<- labels
+      }
+      paste0("\\label{eq:", label, "} \\tag{", value, "}")
+    } else {# We cross-ref the equation
+      paste0("$\\eqref{eq:", label, "}$")
+    }
+  }
+})()
+# Old code:
+#eq <- new_labelling(string = "(@%%%%)", name = "eq") # Was "(@%%%%) $$ @@@@ $$")
