@@ -76,42 +76,42 @@
 <div id="svsweave" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#svsweave" class="anchor"></a>svSweave</h1></div>
+<!-- badges: start -->
 
+<p>‘svSweave’ provides additional functions to work with Sweave, Knitr and R Markdown, essentially for two uses for now:</p>
+<ol>
+<li><p>It implements a pure R code solution ofr numbering and cross-referencing figures, tables and equations in R Markdown files. Standard Pandoc does not provide this. Only the extensions proposed by ‘bookdown’ allow to do so for a limited number of output formats. Of course, you could also use LaTeX markups for this, but then, you are limited to output in PDF. The functions <code><a href="reference/new_labelling.html">fig()</a></code>, <code><a href="reference/new_labelling.html">tab()</a></code>and <code><a href="reference/new_labelling.html">eq()</a></code> allow to number respectively figures, tables and equations in <em>any</em> R Markdown document and the same function can be used to cross-reference these items in thne text. Moreover, <code><a href="reference/new_labelling.html">new_labelling()</a></code> creates a new function to enumerate other items.</p></li>
+<li><p>It provides helper functions to properly use ‘knitr’ with <a href="https://www.lyx.org">LyX</a>, a document editor targetting LaTeX output, that can also benefit from Sweave or knitr to include chunks in LyX documents directly.</p></li>
+</ol>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div id="latest-stable-version" class="section level3">
-<h3 class="hasAnchor">
-<a href="#latest-stable-version" class="anchor"></a>Latest stable version</h3>
-<p>The latest stable version of ‘svSweave’ can simply be installed from <a href="http://cran.r-project.org">CRAN</a>:</p>
+<p>You can install the released version of ‘svSweave’ from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"svSweave"</span>)</pre></div>
-</div>
-<div id="development-version" class="section level3">
-<h3 class="hasAnchor">
-<a href="#development-version" class="anchor"></a>Development version</h3>
-<p>Make sure you have the ‘devtools’ R package installed:</p>
+<p>You can also install the latest developement version. Make sure you have the ‘devtools’ R package installed:</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</pre></div>
 <p>Use <code>install_github()</code> to install the ‘svSweave’ package from Github (source from <strong>master</strong> branch will be recompiled on your machine):</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"SciViews/svSweave"</span>)</pre></div>
 <p>R should install all required dependencies automatically, and then it should compile and install ‘svSweave’.</p>
-<p>Latest devel version of ‘svSweave’ (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from <a href="https://ci.appveyor.com/project/phgrosjean/svSweave/build/artifacts">appveyor</a>.</p>
+<p>Latest devel version of ‘svSweave’ in the “master” branch (source + Windows binaires for the latest stable version of R at the time of compilation) is also available from <a href="https://ci.appveyor.com/project/phgrosjean/svSweave/build/artifacts">appveyor</a>.</p>
 </div>
-</div>
-<div id="usage" class="section level2">
+<div id="further-explore-svsweave" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<p>Make the ‘svSweave’ package available in your R session:</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"svSweave"</span>)</pre></div>
-<p>Get help about this package:</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">help</span> <span class="kw">=</span> <span class="st">"svSweave"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span>(<span class="st">"svSweave-package"</span>)
+<a href="#further-explore-svsweave" class="anchor"></a>Further explore ‘svSweave’</h2>
+<p>You can get further help about this package this way:</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">help</span> <span class="kw">=</span> <span class="st">"svSweave"</span>)
+<span class="no">pckage</span>?<span class="no">svSweave</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"svSweave"</span>) <span class="co"># None is installed with install_github()</span></pre></div>
-<p>For further instructions, please, refer to the help pages at <a href="https://www.sciviews.org/svSweave/" class="uri">https://www.sciviews.org/svSweave/</a>.</p>
+<p>For further instructions, please, refer to the related web site at <a href="https://www.sciviews.org/svSweave/" class="uri">https://www.sciviews.org/svSweave/</a>.</p>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the svSweave project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="note-to-developers" class="section level2">
 <h2 class="hasAnchor">
 <a href="#note-to-developers" class="anchor"></a>Note to developers</h2>
-<p>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 <p>This package used to be developed on R-Forge in the past. However, the latest <a href="https://r-forge.r-project.org/projects/sciviews/">R-Forge version</a> was moved to this Github repository on 2016-03-16 (SVN version 569). <strong>Please, do not use R-Forge anymore for SciViews development, use this Github repository instead.</strong></p>
 </div>
 </div>
@@ -135,6 +135,12 @@
 <li><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a></li>
 </ul>
 </div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 <div class="citation">
 <h2>Citation</h2>
 <ul class="list-unstyled">
@@ -152,12 +158,11 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.com/github/SciViews/svSweave"><img src="https://api.travis-ci.com/SciViews/svSweave.svg" alt="Linux Build Status"></a></li>
-<li><a href="http://ci.appveyor.com/project/phgrosjean/svSweave"><img src="https://ci.appveyor.com/api/projects/status/github/SciViews/svSweave?branch=master&amp;svg=true" alt="Win Build Status"></a></li>
-<li><a href="https://codecov.io/github/SciViews/svSweave?branch=master"><img src="https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg" alt="Coverage Status"></a></li>
-<li><a href="http://cran.r-project.org/package=svSweave"><img src="http://www.r-pkg.org/badges/version/svSweave" alt="CRAN Status"></a></li>
-<li><a href="http://www.gnu.org/licenses/gpl-2.0.html"><img src="https://img.shields.io/badge/license-GPL-blue.svg" alt="License"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Life cycle"></a></li>
+<li><a href="https://travis-ci.com/SciViews/svSweave"><img src="https://travis-ci.com/SciViews/svSweave.svg?branch=master" alt="Linux build status"></a></li>
+<li><a href="https://ci.appveyor.com/project/phgrosjean/svSweave"><img src="https://ci.appveyor.com/api/projects/status/github/SciViews/svSweave?branch=master&amp;svg=true" alt="Win build status"></a></li>
+<li><a href="https://codecov.io/github/SciViews/svSweave?branch=master"><img src="https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg" alt="Coverage status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=svSweave"><img src="https://www.r-pkg.org/badges/version/svSweave" alt="CRAN status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
 </ul>
 </div>
 </div>
