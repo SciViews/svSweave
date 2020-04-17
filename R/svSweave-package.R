@@ -17,7 +17,8 @@
 "_PACKAGE"
 
 #' @importFrom utils Sweave Stangle Rtangle RweaveLatex as.roman
-#' @importFrom knitr knit purl
+#' @importFrom knitr knit purl current_input
+#' @importFrom rmarkdown default_output_format
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start

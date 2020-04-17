@@ -1,7 +1,15 @@
 # svSweave - To do list
 
-- For figure, the anchor is in the legend of the figure. So, when clicked, it is the legend that is displayed, not the figure itself!
+- The reference to numbered header with their number as text is not implemented yet.
 
-- With PDF documents, Figure and Table appear twice. Use the LaTeX tags instead in this case!
+- The numbering by chapter is not implemented yet.
+
+- For LaTeX and Word, figure references point to the caption, not the figure itself, why?
+
+- The figures, tables and equations numbering is mangled with Word if reference of a later figure appears before the preceeding one.
+
+- With Word, equation numbering appears at the left of next paragraph, and is followed by `$$`.
+
+- Test with PowerPoint and R Notebooks.
 
 - Translation in French

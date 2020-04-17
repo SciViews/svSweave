@@ -7,12 +7,17 @@ knitr::opts_chunk$set(
 ## -----------------------------------------------------------------------------
 library(svSweave)
 
-## ---- fig.cap=fig("first-plot", "An example of a simple histogram.")----------
+## ----hist, fig.cap=fig("An example of a simple histogram.")-------------------
 hist(rnorm(50))
 
-## ---- fig.cap=fig("second-plot", "A second plot as an example.")--------------
+## ----boxplot, fig.cap=fig("A second plot as an example.")---------------------
 boxplot(rnorm(50))
 
-## -----------------------------------------------------------------------------
-knitr::kable(head(iris), caption = tab("a-table", "The few first lines of the `iris` dataset."))
+## ----head_iris----------------------------------------------------------------
+knitr::kable(head(iris),
+  caption = tab("The few first lines of the `iris` dataset."))
+
+## ----head_cars----------------------------------------------------------------
+knitr::kable(head(cars),
+  caption = tab("the first few lines of `cars`."), format = "pandoc")
 

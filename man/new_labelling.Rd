@@ -10,50 +10,82 @@
 \usage{
 new_labelling(
   type = c("arabic", "roman"),
-  prefix = "",
-  string = "**[Figure ####]{id=\\"Fig._\%\%\%\%\\"}:** @@@@",
-  name = "Fig."
+  string_html = paste0("<style>.++++-\%\%\%\%::after{content:\\"####\\"}</style>",
+    "<span class=\\"figheader\\">Figure\\\\ ####: </span>@@@@"),
+  string_latex = "@@@@",
+  string_word = "[Figure\\\\ ####:]{#++++:\%\%\%\%} @@@@",
+  string_ref_html = "<a class=\\"++++-\%\%\%\%\\" href=\\"#++++:\%\%\%\%\\"></a>",
+  string_ref_latex = "\\\\ref{++++:\%\%\%\%}",
+  string_ref_word = "[####](#++++:\%\%\%\%)",
+  name = "fig"
 )
 
 newLabelling(
   type = c("arabic", "roman"),
-  prefix = "",
-  string = "**[Figure ####]{id=\\"Fig._\%\%\%\%\\"}:** @@@@",
-  name = "Fig."
+  string_html = paste0("<style>.++++-\%\%\%\%::after{content:\\"####\\"}</style>",
+    "<span class=\\"figheader\\">Figure\\\\ ####: </span>@@@@"),
+  string_latex = "@@@@",
+  string_word = "[Figure\\\\ ####:]{#++++:\%\%\%\%} @@@@",
+  string_ref_html = "<a class=\\"++++-\%\%\%\%\\" href=\\"#++++:\%\%\%\%\\"></a>",
+  string_ref_latex = "\\\\ref{++++:\%\%\%\%}",
+  string_ref_word = "[####](#++++:\%\%\%\%)",
+  name = "fig"
 )
 
-fig(label, text, name, reset = FALSE)
+fig(
+  caption = "",
+  label = knitr::opts_current$get("label"),
+  ref = NULL,
+  reset = FALSE
+)
 
-tab(label, text, name, reset = FALSE)
+tab(
+  caption = "",
+  label = knitr::opts_current$get("label"),
+  ref = NULL,
+  reset = FALSE
+)
 
-eq(label, reset = FALSE)
+eq(label, ref, reset = FALSE)
 }
 \arguments{
 \item{type}{The type of numbering (arabic or roman).}
 
-\item{prefix}{The text to use to prefix the number (nothing, by default).}
+\item{string_html}{The string prototyping the legend, with \verb{++++} being the
+name (\code{fig} by default) \verb{@@} being a placeholder for the text, \verb{####} as a
+placeholder for the number, or \verb{\%\%\%\%} as a placeholder for the label.}
 
-\item{string}{The string prototyping the legend, with \verb{@@} being a
-placeholder for the text, \verb{####} as a placeholder for the number, or
-\verb{\%\%\%\%} as a placeholder for numbered examples (used by \code{\link[=eq]{eq()}}).}
+\item{string_latex}{Idem for LaTeX.}
+
+\item{string_word}{Idem for Word.}
+
+\item{string_ref_html}{Idem for reference in HTML format.}
+
+\item{string_ref_latex}{Idem for reference in LaTeX format.}
+
+\item{string_ref_word}{Idem for reference in Word format.}
 
 \item{name}{The name to use before the number, e.g., "Fig." to get "Fig. 1"
 as cross-reference text for the first figure. If you provide \code{name = NULL},
 only the number is produced.}
 
+\item{caption}{The test of the caption.}
+
 \item{label}{A short string uniquely identifying the item within the
 collection. To set a label in and equation, give a name instead of a string.}
 
-\item{text}{The text for the legend (can contain R Markdown formatting). In
-the case of \code{\link[=eq]{eq()}}, this is the LaTeX code for the equation itself.}
+\item{ref}{The reference to the label.}
 
 \item{reset}{If \code{TRUE}, the collection is reset. Useful if you want to
 restart numbering at the beginning of each chapter.}
 }
 \value{
-The item labelling (legend, ...) if `text =`` is provided, or the number
-associated with the item otherwise. \code{\link[=new_labelling]{new_labelling()}} creates a new labelling
-function, which has the same arguments as \code{\link[=fig]{fig()}}.
+The function returns a caption if \verb{text =} is provided, or an anchor if it is
+missing. If \verb{text=} contains a name, it returns a link.
+Same for the \verb{label=} for \code{eq()}: if it is a text, a couple label + tag to
+place inside display equations is produced, and if it is a name, a link is
+provided. \code{\link[=new_labelling]{new_labelling()}} creates a new labelling function, which has the
+same arguments as \code{\link[=fig]{fig()}}.
 }
 \description{
 These functions return closures that allow for constructing a series of
@@ -65,34 +97,13 @@ A new labelling type is created using \code{\link[=new_labelling]{new_labelling(
 factory (a function that creates functions).
 }
 \examples{
-# Note that those instructions are supposed to be included in R Markdown
-# documents using the inline R expression syntax: `r fig("label", "<text>")`.
-
-# Say you have a first figure labelled 'first-plot'.
-# The first call creates its legend, and the second one references it
-fig("first-plot", "An example of a gpplot2 scatterplot.")
-fig("first-plot")
-
-# A second figure labelled 'a-picture', but with reference appearing first
-fig("a-picture")
-# The second call creates the legend for the picture
-fig("a-picture", "This is my most beautiful picture")
-
-# Same for a table labelled 'anova-table'
-tab("anova-table", "ANOVA for my wonderful dataset.")
-# ... and further in the text, a reference to that table:
-tab("anova-table")
-
-# For equations, it works differently
-# You have to create a display equation with $$<eq>$$
-# and embed `r eq(label)` (without "") in it
-# Here is the code produced
-eq(pythagoras)
-# Then, where you want to cross-ref that equation,
-# you use `r eq("label")` (this time with "")
-# Here is the code produced:
-eq("pythagoras")
-# then Mathjax manages these codes in the HTML document
+# These function are supposed to be used in an R Markdown document
+# see the svSweave vignette
+# Produce a caption that contains the required code to number and reference
+# a figure in HTML documents
+fig("A caption", label = "a_label")
+# Produce a reference to that figure
+fig$a_label
 }
 \author{
 Philippe Grosjean
