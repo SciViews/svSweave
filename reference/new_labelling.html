@@ -129,23 +129,43 @@ label is encountered, and provided again for further use of the same label.</p>
 
     <pre class="usage"><span class='fu'>new_labelling</span>(
   <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"arabic"</span>, <span class='st'>"roman"</span>),
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>string</span> <span class='kw'>=</span> <span class='st'>"**[Figure ####]{id=\"Fig._%%%%\"}:** @@@@"</span>,
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Fig."</span>
+  <span class='kw'>string_html</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"&lt;style&gt;.++++-%%%%::after{content:\"####\"}&lt;/style&gt;"</span>,
+    <span class='st'>"&lt;span class=\"figheader\"&gt;Figure\\ ####: &lt;/span&gt;@@@@"</span>),
+  <span class='kw'>string_latex</span> <span class='kw'>=</span> <span class='st'>"@@@@"</span>,
+  <span class='kw'>string_word</span> <span class='kw'>=</span> <span class='st'>"[Figure\\ ####:]{#++++:%%%%} @@@@"</span>,
+  <span class='kw'>string_ref_html</span> <span class='kw'>=</span> <span class='st'>"&lt;a class=\"++++-%%%%\" href=\"#++++:%%%%\"&gt;&lt;/a&gt;"</span>,
+  <span class='kw'>string_ref_latex</span> <span class='kw'>=</span> <span class='st'>"\\ref{++++:%%%%}"</span>,
+  <span class='kw'>string_ref_word</span> <span class='kw'>=</span> <span class='st'>"[####](#++++:%%%%)"</span>,
+  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"fig"</span>
 )
 
 <span class='fu'>newLabelling</span>(
   <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"arabic"</span>, <span class='st'>"roman"</span>),
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>string</span> <span class='kw'>=</span> <span class='st'>"**[Figure ####]{id=\"Fig._%%%%\"}:** @@@@"</span>,
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"Fig."</span>
+  <span class='kw'>string_html</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"&lt;style&gt;.++++-%%%%::after{content:\"####\"}&lt;/style&gt;"</span>,
+    <span class='st'>"&lt;span class=\"figheader\"&gt;Figure\\ ####: &lt;/span&gt;@@@@"</span>),
+  <span class='kw'>string_latex</span> <span class='kw'>=</span> <span class='st'>"@@@@"</span>,
+  <span class='kw'>string_word</span> <span class='kw'>=</span> <span class='st'>"[Figure\\ ####:]{#++++:%%%%} @@@@"</span>,
+  <span class='kw'>string_ref_html</span> <span class='kw'>=</span> <span class='st'>"&lt;a class=\"++++-%%%%\" href=\"#++++:%%%%\"&gt;&lt;/a&gt;"</span>,
+  <span class='kw'>string_ref_latex</span> <span class='kw'>=</span> <span class='st'>"\\ref{++++:%%%%}"</span>,
+  <span class='kw'>string_ref_word</span> <span class='kw'>=</span> <span class='st'>"[####](#++++:%%%%)"</span>,
+  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"fig"</span>
 )
 
-<span class='fu'>fig</span>(<span class='no'>label</span>, <span class='no'>text</span>, <span class='no'>name</span>, <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>fig</span>(
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_current</a></span>$<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='st'>"label"</span>),
+  <span class='kw'>ref</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)
 
-<span class='fu'>tab</span>(<span class='no'>label</span>, <span class='no'>text</span>, <span class='no'>name</span>, <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>tab</span>(
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>""</span>,
+  <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw pkg'>knitr</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_current</a></span>$<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='st'>"label"</span>),
+  <span class='kw'>ref</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)
 
-<span class='fu'>eq</span>(<span class='no'>label</span>, <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>eq</span>(<span class='no'>label</span>, <span class='no'>ref</span>, <span class='kw'>reset</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,14 +175,30 @@ label is encountered, and provided again for further use of the same label.</p>
       <td><p>The type of numbering (arabic or roman).</p></td>
     </tr>
     <tr>
-      <th>prefix</th>
-      <td><p>The text to use to prefix the number (nothing, by default).</p></td>
+      <th>string_html</th>
+      <td><p>The string prototyping the legend, with <code>++++</code> being the
+name (<code>fig</code> by default) <code>@@</code> being a placeholder for the text, <code>####</code> as a
+placeholder for the number, or <code>%%%%</code> as a placeholder for the label.</p></td>
     </tr>
     <tr>
-      <th>string</th>
-      <td><p>The string prototyping the legend, with <code>@@</code> being a
-placeholder for the text, <code>####</code> as a placeholder for the number, or
-<code>%%%%</code> as a placeholder for numbered examples (used by <code>eq()</code>).</p></td>
+      <th>string_latex</th>
+      <td><p>Idem for LaTeX.</p></td>
+    </tr>
+    <tr>
+      <th>string_word</th>
+      <td><p>Idem for Word.</p></td>
+    </tr>
+    <tr>
+      <th>string_ref_html</th>
+      <td><p>Idem for reference in HTML format.</p></td>
+    </tr>
+    <tr>
+      <th>string_ref_latex</th>
+      <td><p>Idem for reference in LaTeX format.</p></td>
+    </tr>
+    <tr>
+      <th>string_ref_word</th>
+      <td><p>Idem for reference in Word format.</p></td>
     </tr>
     <tr>
       <th>name</th>
@@ -171,14 +207,17 @@ as cross-reference text for the first figure. If you provide <code>name = NULL</
 only the number is produced.</p></td>
     </tr>
     <tr>
+      <th>caption</th>
+      <td><p>The test of the caption.</p></td>
+    </tr>
+    <tr>
       <th>label</th>
       <td><p>A short string uniquely identifying the item within the
 collection. To set a label in and equation, give a name instead of a string.</p></td>
     </tr>
     <tr>
-      <th>text</th>
-      <td><p>The text for the legend (can contain R Markdown formatting). In
-the case of <code>eq()</code>, this is the LaTeX code for the equation itself.</p></td>
+      <th>ref</th>
+      <td><p>The reference to the label.</p></td>
     </tr>
     <tr>
       <th>reset</th>
@@ -189,36 +228,24 @@ restart numbering at the beginning of each chapter.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The item labelling (legend, ...) if `text =`` is provided, or the number
-associated with the item otherwise. <code>new_labelling()</code> creates a new labelling
-function, which has the same arguments as <code>fig()</code>.</p>
+    <p>The function returns a caption if <code>text =</code> is provided, or an anchor if it is
+missing. If <code>text=</code> contains a name, it returns a link.
+Same for the <code>label=</code> for <code>eq()</code>: if it is a text, a couple label + tag to
+place inside display equations is produced, and if it is a name, a link is
+provided. <code>new_labelling()</code> creates a new labelling function, which has the
+same arguments as <code>fig()</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>A new labelling type is created using <code>new_labelling()</code> which is a function
 factory (a function that creates functions).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Note that those instructions are supposed to be included in R Markdown</span>
-<span class='co'># documents using the inline R expression syntax: `r fig("label", "&lt;text&gt;")`.</span>
-
-<span class='co'># Say you have a first figure labelled 'first-plot'.</span>
-<span class='co'># The first call creates its legend, and the second one references it</span>
-<span class='fu'>fig</span>(<span class='st'>"first-plot"</span>, <span class='st'>"An example of a gpplot2 scatterplot."</span>)</div><div class='output co'>#&gt; [1] "**[Figure 1]{id=\"Fig._first-plot\"}:** An example of a gpplot2 scatterplot."</div><div class='input'><span class='fu'>fig</span>(<span class='st'>"first-plot"</span>)</div><div class='output co'>#&gt; [1] "[Fig. 1](#Fig._first-plot)"</div><div class='input'>
-<span class='co'># A second figure labelled 'a-picture', but with reference appearing first</span>
-<span class='fu'>fig</span>(<span class='st'>"a-picture"</span>)</div><div class='output co'>#&gt; [1] "[Fig. 2](#Fig._a-picture)"</div><div class='input'><span class='co'># The second call creates the legend for the picture</span>
-<span class='fu'>fig</span>(<span class='st'>"a-picture"</span>, <span class='st'>"This is my most beautiful picture"</span>)</div><div class='output co'>#&gt; [1] "**[Figure 2]{id=\"Fig._a-picture\"}:** This is my most beautiful picture"</div><div class='input'>
-<span class='co'># Same for a table labelled 'anova-table'</span>
-<span class='fu'>tab</span>(<span class='st'>"anova-table"</span>, <span class='st'>"ANOVA for my wonderful dataset."</span>)</div><div class='output co'>#&gt; [1] "**[Table 1]{id=\"Table_anova-table\"}:** ANOVA for my wonderful dataset."</div><div class='input'><span class='co'># ... and further in the text, a reference to that table:</span>
-<span class='fu'>tab</span>(<span class='st'>"anova-table"</span>)</div><div class='output co'>#&gt; [1] "[Table 1](#Table_anova-table)"</div><div class='input'>
-<span class='co'># For equations, it works differently</span>
-<span class='co'># You have to create a display equation with $$&lt;eq&gt;$$</span>
-<span class='co'># and embed `r eq(label)` (without "") in it</span>
-<span class='co'># Here is the code produced</span>
-<span class='fu'>eq</span>(<span class='no'>pythagoras</span>)</div><div class='output co'>#&gt; [1] "\\label{eq:pythagoras} \\tag{1}"</div><div class='input'><span class='co'># Then, where you want to cross-ref that equation,</span>
-<span class='co'># you use `r eq("label")` (this time with "")</span>
-<span class='co'># Here is the code produced:</span>
-<span class='fu'>eq</span>(<span class='st'>"pythagoras"</span>)</div><div class='output co'>#&gt; [1] "$\\eqref{eq:pythagoras}$"</div><div class='input'># then Mathjax manages these codes in the HTML document
-</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># These function are supposed to be used in an R Markdown document</span>
+<span class='co'># see the svSweave vignette</span>
+<span class='co'># Produce a caption that contains the required code to number and reference</span>
+<span class='co'># a figure in HTML documents</span>
+<span class='fu'>fig</span>(<span class='st'>"A caption"</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"a_label"</span>)</div><div class='output co'>#&gt; [1] "&lt;style&gt;.fig-a_label::after{content:\"1\"}&lt;/style&gt;&lt;span class=\"figheader\"&gt;Figure\\ 1: &lt;/span&gt;A caption"</div><div class='input'><span class='co'># Produce a reference to that figure</span>
+<span class='no'>fig</span>$<span class='no'>a_label</span></div><div class='output co'>#&gt; [1] "&lt;a class=\"fig-a_label\" href=\"#fig:a_label\"&gt;&lt;/a&gt;"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

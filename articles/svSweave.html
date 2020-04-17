@@ -76,7 +76,7 @@
       <h1 data-toc-skip>svSweave - Sweave, Knitr and R Markdown Companion Functions</h1>
                         <h4 class="author">Philippe Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciviews.org</a>)</h4>
             
-            <h4 class="date">2020-04-16</h4>
+            <h4 class="date">2020-04-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/SciViews/svSweave/blob/master/vignettes/svSweave.Rmd"><code>vignettes/svSweave.Rmd</code></a></small>
       <div class="hidden name"><code>svSweave.Rmd</code></div>
@@ -86,27 +86,38 @@
     
     
 <p>The ‘svSweave’ package provides different functions to better manage Sweave and Knitr with LyX, a document processor that creates LaTeX code. These function are not detailed here. See their help page <code>?clean_lyx()</code>.</p>
-<p>The package also provides functions to automatically enumerate and reference figures, tables and equations in R Markdown documents (an alternate mechanisms to ‘bookdown’ that works everywhere). Indeed, this feature is missing in the basic R Markdown documents. The various ‘bookdown’ templates provide a <code>\@ref(label)</code>, see <a href="https://bookdown.org/yihui/bookdown/cross-references.html">cross-reference</a>. The functions <code><a href="../reference/new_labelling.html">fig()</a></code>, <code><a href="../reference/new_labelling.html">tab()</a></code> and <code><a href="../reference/new_labelling.html">eq()</a></code> provide a different mechanism to obtain a similar result: enumerated items and the possibility to cross-reference them in the text. Here an example of a numbered figure with its caption. In order to use these function, you must load the ‘svSweave’ package in a (setup) chunk before you use these functions:</p>
+<p>The package also provides functions to automatically enumerate and reference figures, tables and equations in R Markdown documents (an alternate mechanisms to ‘bookdown’ that works everywhere). Indeed, this feature is missing in the basic R Markdown documents. The various ‘bookdown’ templates provide a <code>\@ref(label)</code>, see <a href="https://bookdown.org/yihui/bookdown/cross-references.html">cross-reference</a>. The functions <code><a href="../reference/new_labelling.html">fig()</a></code>, <code><a href="../reference/new_labelling.html">tab()</a></code> and <code><a href="../reference/new_labelling.html">eq()</a></code> provide a different mechanism to obtain a similar result: enumerated items and to cross-reference them in the text. Here an example of a numbered figure with its caption. In order to use these function, you must load the ‘svSweave’ package in a (setup) chunk before you use these functions:</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">svSweave</span>)</pre></body></html></div>
-<p>Now, you can use <code><a href="../reference/new_labelling.html">fig()</a></code> to number the caption of a figure in <code>fig.cap=</code> (<strong>look at the .Rmd file to see how this is implemented</strong>):</p>
+<div id="numbered-figures" class="section level2">
+<h2 class="hasAnchor">
+<a href="#numbered-figures" class="anchor"></a>Numbered figures</h2>
+<p>You can use <code><a href="../reference/new_labelling.html">fig("my caption text")</a></code> to number the caption of a figure in <code>fig.cap=</code>. The chunk must be named too.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></body></html></div>
 <div class="figure">
-<img src="svSweave_files/figure-html/unnamed-chunk-2-1.png" alt='**[Figure 1]{id="Fig._first-plot"}:** An example of a simple histogram.' width="700"><p class="caption">
-<strong><span id="Fig._first-plot">Figure 1</span>:</strong> An example of a simple histogram.
+<img src="svSweave_files/figure-html/hist-1.png" alt='&lt;style&gt;.fig-hist::after{content:"1"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 1: &lt;/span&gt;An example of a simple histogram.' width="700" id="fig:hist"><p class="caption">
+<style>.fig-hist::after{content:"1"}</style><span class="figheader">Figure 1: </span>An example of a simple histogram.
 </p>
 </div>
-<p>Now, you can reference this plot in the text (see <a href="#Fig._first-plot">Fig. 1</a>). It also works if the first reference appears <strong>before</strong> the figure itself<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, see <a href="#Fig._second-plot">Fig. 2</a>.</p>
+<p>Now, you can reference this plot in the text using <code>fig$label</code> (see Fig <a class="fig-hist" href="#fig:hist"></a>). It also works if the first reference appears <strong>before</strong> the figure itself<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, see Fig <a class="fig-boxplot" href="#fig:boxplot"></a>.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></body></html></div>
 <div class="figure">
-<img src="svSweave_files/figure-html/unnamed-chunk-3-1.png" alt='**[Figure 2]{id="Fig._second-plot"}:** A second plot as an example.' width="700"><p class="caption">
-<strong><span id="Fig._second-plot">Figure 2</span>:</strong> A second plot as an example.
+<img src="svSweave_files/figure-html/boxplot-1.png" alt='&lt;style&gt;.fig-boxplot::after{content:"2"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 2: &lt;/span&gt;A second plot as an example.' width="700" id="fig:boxplot"><p class="caption">
+<style>.fig-boxplot::after{content:"2"}</style><span class="figheader">Figure 2: </span>A second plot as an example.
 </p>
 </div>
-<p>The same principle works for table, for instance, see <a href="#Table_a-table">Table 1</a>.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">iris</span>), <span class="kw">caption</span> <span class="kw">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span>(<span class="st">"a-table"</span>, <span class="st">"The few first lines of the `iris` dataset."</span>))</pre></body></html></div>
+<blockquote>
+<p>Summary: produce numbered figures from labeled R chunks by indicating <code>fig.cap = fig("....")</code>, and reference them using <code>fig$label</code> in an inline R expression.</p>
+</blockquote>
+</div>
+<div id="numbered-tables" class="section level2">
+<h2 class="hasAnchor">
+<a href="#numbered-tables" class="anchor"></a>Numbered tables</h2>
+<p>The same principle works for tables using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>. For instance, see Table <a class="tab-head_iris" href="#tab:head_iris"></a>.</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">iris</span>),
+  <span class="kw">caption</span> <span class="kw">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span>(<span class="st">"The few first lines of the `iris` dataset."</span>))</pre></body></html></div>
+Table: <span id="tab:head_iris">1:</span> The few first lines of the <code>iris</code> dataset.
+<style>.tab-head_iris::after{content:"1"}</style>
 <table class="table">
-<caption>
-<strong><span id="Table_a-table">Table 1</span>:</strong> The few first lines of the <code>iris</code> dataset.</caption>
 <thead><tr class="header">
 <th align="right">Sepal.Length</th>
 <th align="right">Sepal.Width</th>
@@ -159,23 +170,74 @@
 </tr>
 </tbody>
 </table>
-<p>Finally, numbered display equations can also be constructed and cross-referenced. In both cases you use <code><a href="../reference/new_labelling.html">eq()</a></code> with a label, but to label it, you omit to quote the label, and quotes are required for the reference part. The labelling must occur inside a <strong>display equation</strong> presented between two double dollar signs. Take care also that the label must also be a syntactically correct name (using only letters, numbers or _).</p>
-<p><span class="math display">\[x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \label{eq:my_equation} \tag{1}\]</span></p>
-<p>… and I can reference Eq. <span class="math inline">\(\eqref{eq:my_equation}\)</span> like this.</p>
+<p>A reference to <code>cars</code> (Table <a class="tab-head_cars" href="#tab:head_cars"></a>) and to <code>iris</code> (Table <a class="tab-head_iris" href="#tab:head_iris"></a>) again.</p>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">cars</span>),
+  <span class="kw">caption</span> <span class="kw">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span>(<span class="st">"the first few lines of `cars`."</span>), <span class="kw">format</span> <span class="kw">=</span> <span class="st">"pandoc"</span>)</pre></body></html></div>
+Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</code>.
+<style>.tab-head_cars::after{content:"2"}</style>
+<table class="table">
+<thead><tr class="header">
+<th align="right">speed</th>
+<th align="right">dist</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>Remember that the enumeration of figures and tables are calculated as first arrived-first served. This is the correct order in R Markdown, but with R Notebooks where you may calculate chunks in a different order, you will end up with a strange succession of the numbers, unless you reset everything! To reset numbering, you call <code><a href="../reference/new_labelling.html">fig(reset = TRUE)</a></code> or <code><a href="../reference/new_labelling.html">tab(reset = TRUE)</a></code>.</p>
+<p>Summary: produce numbered tables from labeled R chunks by indicating <code>caption = tab("....")</code> in <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>, and reference them using <code>tab$label</code> in an inline R expression.</p>
 </blockquote>
+</div>
+<div id="numbered-equations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#numbered-equations" class="anchor"></a>Numbered equations</h2>
+<p>Finally, numbered display equations can also be constructed and cross-referenced. In the display equation, constructed with a pair of <code>$$</code>, you use <code><a href="../reference/new_labelling.html">eq(label)</a></code> in an inline R expression. To reference it, you use <code>eq$label</code> also in an inline expression.</p>
+<p><span class="math display">\[x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \label{eq:eqlabel} \tag{1}\]</span></p>
+<p>… and I can reference Eq. <span class="math inline">\(\eqref{eq:eqlabel}\)</span> like this.</p>
+<p><span class="math display">\[\sum_{i = 0}^n{x^2} \label{eq:sum} \tag{2}\]</span></p>
+<p>I can cite one Eq <span class="math inline">\(\eqref{eq:sum}\)</span>, or another one Eq <span class="math inline">\(\eqref{eq:pythagoras}\)</span>.</p>
+<p><span class="math display">\[a^2+b^2=c^2 \label{eq:pythagoras} \tag{3}\]</span></p>
+<blockquote>
+<p>Summary: produce numbered equations by adding <code><a href="../reference/new_labelling.html">eq(label)</a></code> inline R expression <em>inside</em> a display equation, and reference to it using <code>eq$label</code> inside an inline R expression.</p>
+</blockquote>
+<p><strong>These tags work in R Markdown to compile HTML, LaTeX or Word, with some glitches remaining to eliminate for LaTeX or Word.</strong></p>
+</div>
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Take care, however, that numbering is sequential from the first call (either cross-reference, or label). You cannot cross-reference the last figure at the beginning of the document… or that last figure will be numbered “Fig. 1”!<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Take care, however, that numbering is sequential from the first call (either cross-reference, or label) in Word. You cannot cross-reference the last figure at the beginning of the document… or that last figure will be numbered “Fig. 1” there. For the other formats, it is not a problem.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 
