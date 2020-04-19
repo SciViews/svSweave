@@ -7,6 +7,7 @@
 [![Coverage status](https://img.shields.io/codecov/c/github/SciViews/svSweave/master.svg)
 ](https://codecov.io/github/SciViews/svSweave?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/svSweave)](https://CRAN.R-project.org/package=svSweave)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
@@ -42,7 +43,14 @@ Latest devel version of 'svSweave' in the "master" branch (source + Windows bina
 
 ## Further explore 'svSweave'
 
-You can get further help about this package this way:
+You can get further help about this package this way: Make the 'svSweave' package available in your R session:
+
+```r
+library("svSweave")
+```
+
+Get help about this package:
+
 
 ```r
 library(help = "svSweave")

@@ -12,7 +12,6 @@ os:
   - linux
   #- osx# Disable MacOS X for now  - osx
 
-
 branches:
   only:
     - master
