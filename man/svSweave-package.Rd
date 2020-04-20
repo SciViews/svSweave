@@ -36,7 +36,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org}
+\strong{Maintainer}: Philippe Grosjean \email{phgrosjean@sciviews.org} (\href{https://orcid.org/0000-0002-2694-9471}{ORCID})
 
 }
 \keyword{internal}

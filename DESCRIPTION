@@ -6,7 +6,8 @@ Title: 'SciViews' - Sweave, Knitr and R Markdown Companion Functions
 Description: Supporting functions for using Sweave ad Knitr with LyX. Functions
   to enumerate and reference figures, tables and equations.
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
-  email = "phgrosjean@sciviews.org"))
+  email = "phgrosjean@sciviews.org",
+  comment = c(ORCID = "0000-0002-2694-9471")))
 Maintainer: Philippe Grosjean <phgrosjean@sciviews.org>
 Depends: R (>= 2.6.0)
 Imports: utils, knitr, rmarkdown
