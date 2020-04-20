@@ -51,7 +51,6 @@ library("svSweave")
 
 Get help about this package:
 
-
 ```r
 library(help = "svSweave")
 pckage?svSweave
