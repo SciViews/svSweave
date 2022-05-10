@@ -3,7 +3,7 @@ pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   svSweave: svSweave.html
-last_built: 2022-05-10T07:49Z
+last_built: 2022-05-10T08:00Z
 urls:
   reference: https://www.sciviews.org/svSweave/reference
   article: https://www.sciviews.org/svSweave/articles
