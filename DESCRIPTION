@@ -2,10 +2,11 @@ Package: svSweave
 Type: Package
 Version: 1.0.0
 Date: 2022-05-10
-Title: 'SciViews' - Sweave, Knitr and R Markdown Companion Functions
+Title: 'SciViews' - 'Sweave', 'Knitr' and R Markdown Companion Functions
 Description: Functions to enumerate and reference figures, tables and equations
-  in R Markdown documents that do not support these features natively (thus not
-  bookdown or quarto. Supporting functions for using Sweave ad Knitr with LyX. 
+  in R Markdown documents that do not support these features (thus not
+  'bookdown' or 'quarto'. Supporting functions for using 'Sweave' and 'Knitr'
+  with 'LyX'. 
 Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
   email = "phgrosjean@sciviews.org",
   comment = c(ORCID = "0000-0002-2694-9471")))

@@ -4,11 +4,12 @@
 \name{svSweave-package}
 \alias{svSweave}
 \alias{svSweave-package}
-\title{svSweave: 'SciViews' - Sweave, Knitr and R Markdown Companion Functions}
+\title{svSweave: 'SciViews' - 'Sweave', 'Knitr' and R Markdown Companion Functions}
 \description{
 Functions to enumerate and reference figures, tables and equations
-  in R Markdown documents that do not support these features natively (thus not
-  bookdown or quarto. Supporting functions for using Sweave ad Knitr with LyX.
+  in R Markdown documents that do not support these features (thus not
+  'bookdown' or 'quarto'. Supporting functions for using 'Sweave' and 'Knitr'
+  with 'LyX'.
 }
 \details{
 The SciViews 'svSweave' package provides additional function to use Sweave or

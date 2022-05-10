@@ -40,7 +40,7 @@
 #' @author Philippe Grosjean
 #' @seealso [knitr::knit()], [utils::Sweave()]
 #' @keywords utilities
-#' @concept Literate programming, weaving, tangling from LyX using Sweave
+#' @concept Literate programming
 clean_lyx <- function(RnwCon, RnwCon2 = RnwCon, encoding = "UTF-8") {
   # By default, it is supposed to be a Sweave document
   opts <- list(kind = "Sweave")
