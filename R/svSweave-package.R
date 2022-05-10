@@ -12,7 +12,8 @@
 #'
 #' - [clean_lyx()], [weave_lyx()], [knit_lyx()], [tangle_lyx()], [purl_lyx()]
 #' to clean up, weave or tangle Sweave files produced by LyX with the SciViews
-#' Sweave or Knitr modules.#'
+#' Sweave or Knitr modules.
+#'
 #' @keywords internal
 "_PACKAGE"
 

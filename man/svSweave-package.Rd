@@ -6,8 +6,9 @@
 \alias{svSweave-package}
 \title{svSweave: 'SciViews' - Sweave, Knitr and R Markdown Companion Functions}
 \description{
-Supporting functions for using Sweave ad Knitr with LyX. Functions
-  to enumerate and reference figures, tables and equations.
+Functions to enumerate and reference figures, tables and equations
+  in R Markdown documents that do not support these features natively (thus not
+  bookdown or quarto. Supporting functions for using Sweave ad Knitr with LyX.
 }
 \details{
 The SciViews 'svSweave' package provides additional function to use Sweave or
@@ -22,7 +23,7 @@ equations in R Markdown documents.
 \item \code{\link[=new_labelling]{new_labelling()}} to create new items iterators.
 \item \code{\link[=clean_lyx]{clean_lyx()}}, \code{\link[=weave_lyx]{weave_lyx()}}, \code{\link[=knit_lyx]{knit_lyx()}}, \code{\link[=tangle_lyx]{tangle_lyx()}}, \code{\link[=purl_lyx]{purl_lyx()}}
 to clean up, weave or tangle Sweave files produced by LyX with the SciViews
-Sweave or Knitr modules.#'
+Sweave or Knitr modules.
 }
 }
 

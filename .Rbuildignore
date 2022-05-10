@@ -5,13 +5,14 @@
 README.md
 FAQ.md
 TODO.md
+CODE_OF_CONDUCT.md
 LICENSE.md
-LICENSE
 Makefile
 .Rprofile
+^\.Rproj\.user$
+^\.*\Rproj$
 ^\.travis\.yml$
 ^appveyor\.yml$
-^\.Rproj\.user$
 ^.*\.Rproj$
 ^doc$
 ^Meta$
@@ -19,4 +20,4 @@ Makefile
 ^docs$
 ^pkgdown$
 ^\.github$
-^CODE_OF_CONDUCT\.md$
+^revdep$
