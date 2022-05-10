@@ -34,6 +34,8 @@
 </script>-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><!-- preloader start --><div class="preloader">
   <img src="../preloader.gif" alt="loading...">
@@ -51,7 +53,7 @@
       </button>
       <div class="navbar-brand-container">
        <div class="navbar-brand-logo">
-         <a class="navbar-brand" href="https://www.sciviews.org">
+         <a class="external-link navbar-brand" href="https://www.sciviews.org">
           <img src="../logo_full.png" alt="SciViews"></a>
        </div>
        <div class="navbar-brand-package">
@@ -70,12 +72,6 @@
       <!-- end svPkgdown global site search with Google -->
       <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/svSweave.html">Get started</a>
 </li>
 <li>
@@ -85,8 +81,8 @@
   <a href="../news/index.html">Changelog</a>
 </li>
         <li>
-  <a href="https://github.com/SciViews/svSweave/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/SciViews/svSweave/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -105,38 +101,41 @@
 
       
 
-      </header><div class="row">
+      </header><script src="svSweave_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>svSweave - Sweave, Knitr and R Markdown Companion Functions</h1>
-                        <h4 class="author">Philippe Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciviews.org</a>)</h4>
+                        <h4 data-toc-skip class="author">Philippe Grosjean (<a href="mailto:phgrosjean@sciviews.org" class="email">phgrosjean@sciviews.org</a>)</h4>
             
-            <h4 class="date">2020-04-20</h4>
+            <h4 data-toc-skip class="date">2022-05-10</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/SciViews/svSweave/blob/master/vignettes/svSweave.Rmd"><code>vignettes/svSweave.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/SciViews/svSweave/blob/HEAD/vignettes/svSweave.Rmd" class="external-link"><code>vignettes/svSweave.Rmd</code></a></small>
       <div class="hidden name"><code>svSweave.Rmd</code></div>
 
     </div>
 
     
     
-<p>The ‘svSweave’ package provides different functions to better manage Sweave and Knitr with LyX, a document processor that creates LaTeX code. These function are not detailed here. See their help page <code>?clean_lyx()</code>.</p>
-<p>The package also provides functions to automatically enumerate and reference figures, tables and equations in R Markdown documents (an alternate mechanisms to ‘bookdown’ that works everywhere). Indeed, this feature is missing in the basic R Markdown documents. The various ‘bookdown’ templates provide a <code>\@ref(label)</code>, see <a href="https://bookdown.org/yihui/bookdown/cross-references.html">cross-reference</a>. The functions <code><a href="../reference/new_labelling.html">fig()</a></code>, <code><a href="../reference/new_labelling.html">tab()</a></code> and <code><a href="../reference/new_labelling.html">eq()</a></code> provide a different mechanism to obtain a similar result: enumerated items and to cross-reference them in the text. Here an example of a numbered figure with its caption. In order to use these function, you must load the ‘svSweave’ package in a (setup) chunk before you use these functions:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">svSweave</span>)</pre></body></html></div>
-<div id="numbered-figures" class="section level2">
-<h2 class="hasAnchor">
-<a href="#numbered-figures" class="anchor"></a>Numbered figures</h2>
-<p>You can use <code><a href="../reference/new_labelling.html">fig("my caption text")</a></code> to number the caption of a figure in <code>fig.cap=</code>. The chunk must be named too.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></body></html></div>
+<p>The {svSweave} package provides different functions to better manage <strong>Sweave</strong> and <strong>Knitr</strong> with <strong>LyX</strong>, a document processor that creates LaTeX code. <strong>These functions are deprecated</strong> and are not detailed here. See their help page <code>?clean_lyx()</code>.</p>
+<p>The package also provides functions to automatically enumerate and reference figures, tables and equations in R Markdown documents (an alternate mechanisms to {bookdown} or {quarto} that works everywhere). Indeed, this feature is missing in the basic R Markdown documents. The various {bookdown} templates provide a <code>\@ref(label)</code>, see <a href="https://bookdown.org/yihui/bookdown/cross-references.html" class="external-link">bookdown cross references</a> and Quarto simply uses <code>@label</code>, see <a href="https://quarto.org/docs/authoring/cross-references.html" class="external-link">quarto cross references</a>. The functions <code><a href="../reference/new_labelling.html">fig()</a></code>, <code><a href="../reference/new_labelling.html">tab()</a></code> and <code><a href="../reference/new_labelling.html">eq()</a></code> provide a different mechanism to obtain a similar result: to enumerate items and to cross-reference them in the text. Here an example of a numbered figure with its caption. In order to use these function, you must load the {svSweave} package in a (setup) chunk before you use these functions:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SciViews/svSweave" class="external-link">svSweave</a></span><span class="op">)</span></code></pre></div>
+<div class="section level2">
+<h2 id="numbered-figures">Numbered figures<a class="anchor" aria-label="anchor" href="#numbered-figures"></a>
+</h2>
+<p>You can use <code>fig("my caption text")</code> to number the caption of a figure in <code>fig.cap=</code>. The chunk must be named too.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure">
-<img src="svSweave_files/figure-html/hist-1.png" alt='&lt;style&gt;.fig-hist::after{content:"1"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 1: &lt;/span&gt;An example of a simple histogram.' width="700" id="fig:hist"><p class="caption">
+<img src="svSweave_files/figure-html/hist-1.png" alt='&lt;style&gt;.fig-hist::after{content:"1"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 1: &lt;/span&gt;An example of a simple histogram.' width="700" id="fig:unnamed-chunk-1"><p class="caption">
 <style>.fig-hist::after{content:"1"}</style><span class="figheader">Figure 1: </span>An example of a simple histogram.
 </p>
 </div>
 <p>Now, you can reference this plot in the text using <code>fig$label</code> (see Fig <a class="fig-hist" href="#fig:hist"></a>). It also works if the first reference appears <strong>before</strong> the figure itself<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, see Fig <a class="fig-boxplot" href="#fig:boxplot"></a>.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">50</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">boxplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure">
-<img src="svSweave_files/figure-html/boxplot-1.png" alt='&lt;style&gt;.fig-boxplot::after{content:"2"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 2: &lt;/span&gt;A second plot as an example.' width="700" id="fig:boxplot"><p class="caption">
+<img src="svSweave_files/figure-html/boxplot-1.png" alt='&lt;style&gt;.fig-boxplot::after{content:"2"}&lt;/style&gt;&lt;span class="figheader"&gt;Figure\ 2: &lt;/span&gt;A second plot as an example.' width="700" id="fig:hist"><p class="caption">
 <style>.fig-boxplot::after{content:"2"}</style><span class="figheader">Figure 2: </span>A second plot as an example.
 </p>
 </div>
@@ -144,12 +143,13 @@
 <p>Summary: produce numbered figures from labeled R chunks by indicating <code>fig.cap = fig("....")</code>, and reference them using <code>fig$label</code> in an inline R expression.</p>
 </blockquote>
 </div>
-<div id="numbered-tables" class="section level2">
-<h2 class="hasAnchor">
-<a href="#numbered-tables" class="anchor"></a>Numbered tables</h2>
-<p>The same principle works for tables using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>. For instance, see Table <a class="tab-head_iris" href="#tab:head_iris"></a>.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">iris</span>),
-  <span class="kw">caption</span> <span class="kw">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span>(<span class="st">"The few first lines of the `iris` dataset."</span>))</pre></body></html></div>
+<div class="section level2">
+<h2 id="numbered-tables">Numbered tables<a class="anchor" aria-label="anchor" href="#numbered-tables"></a>
+</h2>
+<p>The same principle works for tables using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code>. For instance, see Table <a class="tab-head_iris" href="#tab:head_iris"></a>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>,
+  caption <span class="op">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span><span class="op">(</span><span class="st">"The few first lines of the `iris` dataset."</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 Table: <span id="tab:head_iris">1:</span> The few first lines of the <code>iris</code> dataset.
 <style>.tab-head_iris::after{content:"1"}</style>
 <table class="table">
@@ -206,8 +206,9 @@ Table: <span id="tab:head_iris">1:</span> The few first lines of the <code>iris<
 </tbody>
 </table>
 <p>A reference to <code>cars</code> (Table <a class="tab-head_cars" href="#tab:head_cars"></a>) and to <code>iris</code> (Table <a class="tab-head_iris" href="#tab:head_iris"></a>) again.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="kw pkg">knitr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">cars</span>),
-  <span class="kw">caption</span> <span class="kw">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span>(<span class="st">"the first few lines of `cars`."</span>), <span class="kw">format</span> <span class="kw">=</span> <span class="st">"pandoc"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span>,
+  caption <span class="op">=</span> <span class="fu"><a href="../reference/new_labelling.html">tab</a></span><span class="op">(</span><span class="st">"the first few lines of `cars`."</span><span class="op">)</span>, format <span class="op">=</span> <span class="st">"pandoc"</span><span class="op">)</span></code></pre></div>
 Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</code>.
 <style>.tab-head_cars::after{content:"2"}</style>
 <table class="table">
@@ -243,20 +244,20 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
 </tbody>
 </table>
 <blockquote>
-<p>Summary: produce numbered tables from labeled R chunks by indicating <code>caption = tab("....")</code> in <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>, and reference them using <code>tab$label</code> in an inline R expression.</p>
+<p>Summary: produce numbered tables from labeled R chunks by indicating <code>caption = tab("....")</code> in <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code>, and reference them using <code>tab$label</code> in an inline R expression.</p>
 </blockquote>
 </div>
-<div id="numbered-equations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#numbered-equations" class="anchor"></a>Numbered equations</h2>
-<p>Finally, numbered display equations can also be constructed and cross-referenced. In the display equation, constructed with a pair of <code>$$</code>, you use <code><a href="../reference/new_labelling.html">eq(label)</a></code> in an inline R expression. To reference it, you use <code>eq$label</code> also in an inline expression.</p>
+<div class="section level2">
+<h2 id="numbered-equations">Numbered equations<a class="anchor" aria-label="anchor" href="#numbered-equations"></a>
+</h2>
+<p>Finally, numbered display equations can also be constructed and cross-referenced. In the display equation, constructed with a pair of <code>$$</code>, you use <code>eq(label)</code> in an inline R expression. To reference it, you use <code>eq$label</code> also in an inline expression.</p>
 <p><span class="math display">\[x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \label{eq:eqlabel} \tag{1}\]</span></p>
 <p>… and I can reference Eq. <span class="math inline">\(\eqref{eq:eqlabel}\)</span> like this.</p>
 <p><span class="math display">\[\sum_{i = 0}^n{x^2} \label{eq:sum} \tag{2}\]</span></p>
 <p>I can cite one Eq <span class="math inline">\(\eqref{eq:sum}\)</span>, or another one Eq <span class="math inline">\(\eqref{eq:pythagoras}\)</span>.</p>
 <p><span class="math display">\[a^2+b^2=c^2 \label{eq:pythagoras} \tag{3}\]</span></p>
 <blockquote>
-<p>Summary: produce numbered equations by adding <code><a href="../reference/new_labelling.html">eq(label)</a></code> inline R expression <em>inside</em> a display equation, and reference to it using <code>eq$label</code> inside an inline R expression.</p>
+<p>Summary: produce numbered equations by adding <code>eq(label)</code> inline R expression <em>inside</em> a display equation, and reference to it using <code>eq$label</code> inside an inline R expression.</p>
 </blockquote>
 <p><strong>These tags work in R Markdown to compile HTML, LaTeX or Word, with some glitches remaining to eliminate for LaTeX or Word.</strong></p>
 </div>
@@ -289,19 +290,19 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
                         <!-- social icon -->
                         <ul class="list-inline">
 <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://github.com/SciViews">
+                                <a class="external-link social-icon-outline" href="https://github.com/SciViews">
                                     <i class="ti-github"></i>
                                 </a>
                             </li>
 
                             <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://twitter.com/PhilGrosjean">
+                                <a class="external-link social-icon-outline" href="https://twitter.com/PhilGrosjean">
                                     <i class="ti-twitter-alt"></i>
                                 </a>
                             </li>
 
                             <li class="list-inline-item">
-                                <a class="social-icon-outline" href="https://www.linkedin.com/in/philippe-grosjean-5b6b29a2/">
+                                <a class="external-link social-icon-outline" href="https://www.linkedin.com/in/philippe-grosjean-5b6b29a2/">
                                     <i class="ti-linkedin"></i>
                                 </a>
                             </li>
@@ -314,23 +315,23 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
                     <p class="h4 text-white mb-4">Related</p>
                     <ul class="footer-links">
 <li>
-                            <a href="http://econum.umons.ac.be">Our Lab</a>
+                            <a href="http://econum.umons.ac.be" class="external-link">Our Lab</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/fs/en/">Our Faculty</a>
+                            <a href="https://web.umons.ac.be/fs/en/" class="external-link">Our Faculty</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/complexys/en/">Complexys</a>
+                            <a href="https://web.umons.ac.be/complexys/en/" class="external-link">Complexys</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/infortech/en/">InforTech</a>
+                            <a href="https://web.umons.ac.be/infortech/en/" class="external-link">InforTech</a>
                         </li>
 
                         <li>
-                            <a href="https://web.umons.ac.be/en/">UMONS</a>
+                            <a href="https://web.umons.ac.be/en/" class="external-link">UMONS</a>
                         </li>
 
                     </ul>
@@ -340,23 +341,23 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
                     <p class="h4 text-white mb-4">Quick Link</p>
                     <ul class="footer-links">
 <li>
-                            <a href="https://www.sciviews.org/software/svbox">SciViews Box</a>
+                            <a href="https://www.sciviews.org/software/svbox" class="external-link">SciViews Box</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/software/sciviews-r">SciViews::R</a>
+                            <a href="https://www.sciviews.org/software/sciviews-r" class="external-link">SciViews::R</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/software/zooimage">Zoo/PhytoImage</a>
+                            <a href="https://www.sciviews.org/software/zooimage" class="external-link">Zoo/PhytoImage</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/blog">Blog</a>
+                            <a href="https://www.sciviews.org/blog" class="external-link">Blog</a>
                         </li>
 
                         <li>
-                            <a href="https://www.sciviews.org/about">About</a>
+                            <a href="https://www.sciviews.org/about" class="external-link">About</a>
                         </li>
 
                     </ul>
@@ -383,7 +384,7 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
                 <div class="col-lg-6 col-md-7">
                     <ul class="list-inline text-center text-md-right">
 <li class="list-inline-item mx-lg-3 my-lg-0 mx-2 my-2">
-                            <a class="font-secondary text-white" href="https://creativecommons.org/licenses/by/4.0/">Site content under CC-BY 4.0 license</a>
+                            <a class="external-link font-secondary text-white" href="https://creativecommons.org/licenses/by/4.0/">Site content under CC-BY 4.0 license</a>
                         </li>
 
                     </ul>
@@ -404,6 +405,8 @@ Table: <span id="tab:head_cars">2:</span> the first few lines of <code>cars</cod
 
   
 
+
+  
 
   </body>
 </html>

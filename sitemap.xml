@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.sciviews.org/svSweave/404.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/TODO.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/articles/svSweave.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/authors.html</loc>
+  </url>
+  <url>
     <loc>https://www.sciviews.org/svSweave/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/news/index.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/svSweave/reference/clean_lyx.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/svSweave/reference/fig_id.html</loc>
+  </url>
+  <url>
+    <loc>https://www.sciviews.org/svSweave/reference/index.html</loc>
   </url>
   <url>
     <loc>https://www.sciviews.org/svSweave/reference/new_labelling.html</loc>
@@ -17,8 +44,5 @@
   </url>
   <url>
     <loc>https://www.sciviews.org/svSweave/reference/svSweave-package.html</loc>
-  </url>
-  <url>
-    <loc>https://www.sciviews.org/svSweave/articles/svSweave.html</loc>
   </url>
 </urlset>
